@@ -17,3 +17,19 @@ void setCatapult(){
         cataDown = false;
     }
 }
+
+void returnCata(){
+    cataDown = false;
+    while(true){
+    if(cataLimit.get_value()){
+        cataDown = true;
+    }
+    if(!cataDown){
+        catapult = 127;
+    }
+    else {
+        catapult = 0;
+        break;
+    }
+    }   
+}

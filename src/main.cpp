@@ -1,19 +1,10 @@
 #include "main.h"
+#include "autoSelect/selection.h"
 
 void initialize() {
 
-	pros::lcd::initialize();
-	defaultConstants();
-
-	if (pros::competition::is_connected()){
-		ez::as::initialize();
-  	}
-
-	ez::as::auton_selector.add_autons({
-    Auton("Full Win Point", fullWinPoint),
-    Auton("5 Shots", testAuton),
-    //Auton("Alternate Roller", auto3),
-  });
+	selector::init();
+	
 }
 
 void disabled() {}
@@ -29,7 +20,7 @@ void autonomous() {
   	backRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
   	backLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	*/
-	skills();
+	fullWinPoint();
 }
 
 void opcontrol() {

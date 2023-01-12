@@ -17,3 +17,4 @@ extern pros::Controller controller;
 //Sensors & Pistons
 extern pros::ADIDigitalIn cataLimit;
 extern pros::ADIDigitalOut expansion;
+extern pros::ADIDigitalOut bandRelease;

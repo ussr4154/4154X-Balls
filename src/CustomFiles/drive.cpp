@@ -4,10 +4,10 @@
 void setDrive(int left, int right) {
 
   frontLeft = left;
-  middleLeft = -left;
+  middleLeft = left;
   backLeft = left;
   frontRight = right;
-  middleRight = -right;
+  middleRight = right;
   backRight = right;
 
 }
