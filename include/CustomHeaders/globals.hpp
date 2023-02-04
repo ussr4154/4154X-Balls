@@ -18,3 +18,4 @@ extern pros::Controller controller;
 extern pros::ADIDigitalIn cataLimit;
 extern pros::ADIDigitalOut expansion;
 extern pros::ADIDigitalOut bandRelease;
+extern pros::Rotation cataPot;

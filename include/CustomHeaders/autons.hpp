@@ -1,7 +1,7 @@
 #include "main.h"
 
 void fullWinPoint();
-void fiveDisc();
+void leftSide();
 void skills();
 void testAuton();
 void rightSide();

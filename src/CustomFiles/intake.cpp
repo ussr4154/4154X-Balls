@@ -12,7 +12,7 @@ void setIntake() {
         }
     }
     else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-            intake.move_velocity(-300);
+            intake.move_velocity(-600);
     }
     else {
             intake = 0;

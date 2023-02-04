@@ -1,9 +1,14 @@
 #include "main.h"
 
+#define CATA_TARGET_POSITION 8430
+//Driver Position 8250
+//Auton Position 8490
+#define CATA_LAUNCHED_POSITION 10000
 bool cataDown = false;
+bool killSwitch = false;
 
 void setCatapult(){
-    if(cataLimit.get_value()){
+    if(cataPot.get_angle() < CATA_TARGET_POSITION){
         cataDown = true;
     }
     if(cataDown == true && !controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
@@ -18,10 +23,22 @@ void setCatapult(){
     }
 }
 
+void cataCheckLaunch(){
+    if(cataPot.get_angle() > CATA_LAUNCHED_POSITION){
+        cataDown = false;
+    }
+}
+
+void cataCheckStart(){
+    if(cataPot.get_angle() > CATA_TARGET_POSITION){
+        cataDown = false;
+    }
+}
+
 void returnCata(){
     cataDown = false;
     while(true){
-    if(cataLimit.get_value()){
+    if(cataPot.get_angle() < CATA_TARGET_POSITION){
         cataDown = true;
     }
     if(!cataDown){
@@ -33,3 +50,4 @@ void returnCata(){
     }
     }   
 }
+

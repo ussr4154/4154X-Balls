@@ -2,9 +2,7 @@
 #include "autoSelect/selection.h"
 
 void initialize() {
-
 	selector::init();
-	
 }
 
 void disabled() {}
@@ -20,10 +18,12 @@ void autonomous() {
   	backRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
   	backLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	*/
-	fullWinPoint();
+	rightSide();
 }
 
 void opcontrol() {
+
+	cataCheckStart();
 
 	while (true) {
 
@@ -31,6 +31,7 @@ void opcontrol() {
 		setDriveMotors();
 		setIntake();
 		setCatapult();
+		cataCheckLaunch();
 		shootStrings();
 
 		pros::delay(10);
