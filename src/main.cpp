@@ -18,12 +18,35 @@ void autonomous() {
   	backRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
   	backLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	*/
-	rightSide();
-}
+
+	/*if(selector::auton == 1){
+		leftSide();
+	}
+	if(selector::auton == -1){
+		leftSide();
+	}
+	if(selector::auton == 2){
+		rightSide();
+	}
+	if(selector::auton == -2){
+		rightSide();
+	}
+	if(selector::auton == 3){
+		fullWinPoint();
+	}
+	if(selector::auton == -3){
+		fullWinPoint();
+	}
+	if(selector::auton == 0){
+		skills();
+	}*/
+	skills();
+} 
 
 void opcontrol() {
 
 	cataCheckStart();
+	bandRelease.set_value(true);
 
 	while (true) {
 
