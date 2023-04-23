@@ -1,9 +1,9 @@
 #include "main.h"
 
-#define CATA_TARGET_POSITION 500
-//Driver Position 8250
-//Auton Position 8490
-#define CATA_LAUNCHED_POSITION 6800
+#define CATA_TARGET_POSITION 1100
+//Driver Position 450
+//Auton Position 350
+#define CATA_LAUNCHED_POSITION 7500
 bool cataDown = false;
 bool killSwitch = false;
 

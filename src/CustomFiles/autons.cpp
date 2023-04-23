@@ -1,18 +1,18 @@
 #include "main.h"
-#define CATA_AUTON_POSITION 400 //Normal 400 Skills 440
+#define CATA_AUTON_POSITION 1070 //Normal 350 Skills 450
 
 // Chassis constructor
 Drive EZchassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {15, 17, 16}
+  {14, 13, 12}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{13, 11, 12}
+  ,{17, 15, 16}
 
   // IMU Port
-  ,18
+  ,19
 
   // Wheel Diameter (Remember, 4" wheels are actually 4.125!)
   //    (or tracking wheel diameter)
@@ -113,6 +113,7 @@ void cataReturnTimeout(){
     pros::delay(1300);
     catapult = 0;
 }
+
 void killCata(){
   cataDown = true;
   catapult = 0;
@@ -161,7 +162,7 @@ void clearEncoders(){
 
 void leftSide(){
 
-  EZchassis.set_drive_pid(-5, 80, true);
+  EZchassis.set_drive_pid(-2, 100, true);
   EZchassis.wait_drive();
 
   spinRoller(260);
@@ -172,18 +173,99 @@ void leftSide(){
   EZchassis.set_turn_pid(-10, 60);
   EZchassis.wait_drive();
 
-  EZchassis.set_drive_pid(6, 50, true);
+  EZchassis.set_drive_pid(4, 100, true);
+  EZchassis.wait_drive();
 
-  pros::delay(40);
+  EZchassis.set_drive_pid(8, 120, true);
+
+  pros::delay(80);
 
   launchCata();
 
   EZchassis.wait_drive();
 
-  EZchassis.set_turn_pid(-45, 60);
+  EZchassis.set_drive_pid(-10, 100, true);
   EZchassis.wait_drive();
 
-  EZchassis.set_drive_pid(-3.5, 80, true);
+  EZchassis.set_turn_pid(-133, 60);
+
+  cataReturn();
+
+  EZchassis.wait_drive();
+
+  intakeLifter.set_value(true);
+
+  EZchassis.set_drive_pid(-17, 120, true);
+  EZchassis.wait_drive();
+
+  intake = 127;
+
+  intakeLifter.set_value(false);
+
+  pros::delay(500);
+
+  EZchassis.set_drive_pid(5, 120, true);
+  EZchassis.wait_drive();
+
+  EZchassis.set_drive_pid(-35, 80, true);
+  EZchassis.wait_drive();
+
+  EZchassis.set_turn_pid(-35, 60);
+  EZchassis.wait_drive();
+
+  intake = 0;
+
+  EZchassis.set_drive_pid(8, 80, true);
+
+  pros::delay(80);
+
+  launchCata();
+
+  EZchassis.wait_drive();
+
+  EZchassis.set_drive_pid(-8, 120, true);
+
+  cataReturn();
+
+  EZchassis.wait_drive();
+
+  EZchassis.set_turn_pid(-133, 60);
+  EZchassis.wait_drive();
+
+  intake = 127;
+
+  EZchassis.set_drive_pid(-50, 100);
+  EZchassis.wait_drive();
+
+  EZchassis.set_drive_pid(-12, 60, true);
+  EZchassis.wait_drive();
+
+  EZchassis.set_drive_pid(45.5, 120, true);
+  EZchassis.wait_drive();
+
+  EZchassis.set_turn_pid(-43, 60);
+  EZchassis.wait_drive();
+
+  intake = 0;
+
+  EZchassis.set_drive_pid(8, 120, true);
+
+  pros::delay(80);
+
+  launchCata();
+
+  EZchassis.wait_drive();
+
+  cataReturn();
+
+
+
+
+
+  // EZchassis.set_drive_pid(-10, 80, true);
+  // EZchassis.wait_drive();
+
+  /*EZchassis.set_drive_pid(-3.5, 80, true);
   EZchassis.wait_drive();
 
   EZchassis.set_turn_pid(-133, 60);
@@ -217,33 +299,10 @@ void leftSide(){
 
   launchCata();
 
-  EZchassis.set_drive_pid(3, 100, true);
+  EZchassis.set_drive_pid(-5, 100, true);
   EZchassis.wait_drive();
-
-  EZchassis.set_turn_pid(-133, 60);
   
   cataReturn();
-
-  EZchassis.wait_drive();
-
-  intake = 127;
-
-  EZchassis.set_drive_pid(-50, 50, true);
-  EZchassis.wait_drive();
-
-  EZchassis.set_drive_pid(50, 120, true);
-  EZchassis.wait_drive();
-
-  EZchassis.set_turn_pid(-43, 60);
-  EZchassis.wait_drive();
-
-  EZchassis.set_drive_pid(2, 50, true);
-  EZchassis.wait_drive();
-
-  launchCata();
-
-  cataReturn();
-
 
 
   /*EZchassis.set_drive_pid(33, 120, true);
@@ -545,7 +604,7 @@ void skills(){
 
   intake = 0;
 
-  EZchassis.set_drive_pid(-6.5, 50, true);
+  EZchassis.set_drive_pid(-6, 50, true);
   EZchassis.wait_drive();
 
   spinRoller(260, true);
@@ -556,7 +615,7 @@ void skills(){
   EZchassis.set_turn_pid(268, 60);
   EZchassis.wait_drive();
 
-  EZchassis.set_drive_pid(-13.5, 50, true);
+  EZchassis.set_drive_pid(-13, 50, true);
   EZchassis.wait_drive();
 
   spinRoller(260, true);
@@ -564,7 +623,7 @@ void skills(){
   EZchassis.set_drive_pid(23, 100, true);
   EZchassis.wait_drive();
 
-  EZchassis.set_turn_pid(233, 60);
+  EZchassis.set_turn_pid(235, 60);
   EZchassis.wait_drive();
 
   intake = 127;
@@ -575,7 +634,7 @@ void skills(){
   intake = 0;
 
   //EXPAND EXPAND EXPAND
-
+  expansion.set_value(true);
 
 
   /*intake = 127;
@@ -796,32 +855,93 @@ void rightSide(){
 
   EZchassis.wait_drive();
 
-  EZchassis.set_turn_pid(-89, 60);
+  EZchassis.set_turn_pid(-90, 60);
   EZchassis.wait_drive();
 
-  EZchassis.set_drive_pid(-6, 100, true);
+  EZchassis.set_drive_pid(-5.5, 100, true);
   EZchassis.wait_drive();
 
   spinRoller(260);
 
-  /*EZchassis.set_drive_pid(10, 100, true);
-  EZchassis.wait_drive();*/
-
-  EZchassis.set_drive_pid(3, 120, true);
+  EZchassis.set_drive_pid(5, 120, true);
   EZchassis.wait_drive();
 
-  EZchassis.set_turn_pid(-77, 60);
+  EZchassis.set_turn_pid(-76, 60);
   EZchassis.wait_drive();
 
-  EZchassis.set_drive_pid(7, 120);
+  EZchassis.set_drive_pid(4, 100, true);
+  EZchassis.wait_drive();
 
-  pros::delay(40);
+  EZchassis.set_drive_pid(6, 120);
+
+  pros::delay(50);
 
   launchCata();
 
   EZchassis.wait_drive();
 
-  EZchassis.set_turn_pid(0, 60);
+  EZchassis.set_drive_pid(-12, 120, true);
+  EZchassis.wait_drive();
+
+  EZchassis.set_turn_pid(45, 60);
+
+  cataReturn();
+
+  EZchassis.wait_drive();
+
+  intake = 127;
+
+  EZchassis.set_drive_pid(-65.5, 90, true);
+  EZchassis.wait_drive();
+
+  EZchassis.set_turn_pid(-43, 60);
+  EZchassis.wait_drive();
+
+  intake = 0;
+
+  pros::delay(400);
+
+  EZchassis.set_drive_pid(8, 120, true);
+
+  pros::delay(80);
+
+  launchCata();
+
+  EZchassis.wait_drive();
+
+  EZchassis.set_drive_pid(-9, 70, true);
+
+  cataReturn();
+  
+  EZchassis.wait_drive();
+
+  EZchassis.set_turn_pid(-80, 60);
+  EZchassis.wait_drive();
+
+  intake = 127;
+
+  EZchassis.set_drive_pid(-33, 40, true);
+  EZchassis.wait_drive();
+
+  EZchassis.set_drive_pid(32, 120, true);
+  EZchassis.wait_drive();
+
+  EZchassis.set_turn_pid(-43, 60);
+  EZchassis.wait_drive();
+
+  EZchassis.set_drive_pid(8, 120, true);
+
+  pros::delay(80);
+
+  launchCata();
+
+  EZchassis.wait_drive();
+
+
+
+
+
+  /*EZchassis.set_turn_pid(0, 60);
   EZchassis.wait_drive();
 
   EZchassis.set_drive_pid(-6, 100, true);
@@ -840,8 +960,14 @@ void rightSide(){
   EZchassis.set_turn_pid(-44, 80);
   EZchassis.wait_drive();
 
-  EZchassis.set_drive_pid(3, 60, true);
+  EZchassis.set_drive_pid(3, 80, true);
   EZchassis.wait_drive();
+
+  intake = -127;
+
+  pros::delay(1000);
+
+  intake = 0;
 
   launchCata();
   
@@ -857,7 +983,7 @@ void rightSide(){
   EZchassis.set_drive_pid(-20, 100, true);
   EZchassis.wait_drive();
 
-  */cataReturn();
+  */ /*cataReturn();*/
 
 
   /*EZchassis.set_turn_pid(0, 80);

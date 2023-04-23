@@ -85,8 +85,8 @@ void init(int hue, int default_auton, const char **autons){
 	tabview = lv_tabview_create(lv_scr_act(), NULL);
 
 	// add 3 tabs (the tabs are page (lv_page) and can be scrolled
-	lv_obj_t *redTab = lv_tabview_add_tab(tabview, "Red");
-	lv_obj_t *blueTab = lv_tabview_add_tab(tabview, "Blue");
+	lv_obj_t *redTab = lv_tabview_add_tab(tabview, "Match");
+	//lv_obj_t *blueTab = lv_tabview_add_tab(tabview, "Blue");
 	lv_obj_t *skillsTab = lv_tabview_add_tab(tabview, "Skills");
 
 	//set default tab
@@ -107,13 +107,15 @@ void init(int hue, int default_auton, const char **autons){
 	lv_obj_align(redBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
 
 	// blue tab
-	blueBtnm = lv_btnm_create(blueTab, NULL);
+	
+	/*blueBtnm = lv_btnm_create(blueTab, NULL);
 	lv_btnm_set_map(blueBtnm, btnmMap);
 	lv_btnm_set_action(blueBtnm, *blueBtnmAction);
 	lv_btnm_set_toggle(blueBtnm, true, abs(auton)-1);
 	lv_obj_set_size(blueBtnm, 450, 50);
 	lv_obj_set_pos(blueBtnm, 0, 100);
 	lv_obj_align(blueBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
+	*/
 
 	// skills tab
 	lv_obj_t *skillsBtn = lv_btn_create(skillsTab, NULL);

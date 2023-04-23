@@ -19,7 +19,7 @@ void autonomous() {
   	backLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	
 
-	if(selector::auton == 1){
+	/*if(selector::auton == 1){
 		leftSide();
 	}
 	if(selector::auton == -1){
@@ -39,7 +39,9 @@ void autonomous() {
 	}
 	if(selector::auton == 0){
 		skills();
-	}
+	}*/
+
+	rightSide();
 } 
 
 void opcontrol() {

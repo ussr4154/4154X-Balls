@@ -15,7 +15,7 @@ extern pros::Motor intake;
 extern pros::Controller controller;
 
 //Sensors & Pistons
-extern pros::ADIDigitalIn cataLimit;
+extern pros::ADIDigitalOut intakeLifter;
 extern pros::ADIDigitalOut expansion;
 extern pros::ADIDigitalOut bandRelease;
 extern pros::Rotation cataPot;
