@@ -1,6 +1,6 @@
 #include "main.h"
 
-#define CATA_TARGET_POSITION 1100
+#define CATA_TARGET_POSITION 1120
 //Driver Position 450
 //Auton Position 350
 #define CATA_LAUNCHED_POSITION 7500

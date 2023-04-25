@@ -14,7 +14,7 @@ pros::Motor intake(1, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_COU
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 //Sensors & Pistons
-pros::ADIDigitalOut expansion('B', false);
-pros::ADIDigitalOut bandRelease('C', false);
+pros::ADIDigitalOut expansion('H', false);
+pros::ADIDigitalOut bandRelease('G', false);
 pros::ADIDigitalOut intakeLifter('A', false);
 pros::Rotation cataPot(18);

@@ -41,7 +41,7 @@ void autonomous() {
 		skills();
 	}*/
 
-	rightSide();
+	skills();
 } 
 
 void opcontrol() {
